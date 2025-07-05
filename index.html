@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Trip Chalo</title>
   <link rel="stylesheet" href="app.css" />
 </head>
@@ -20,6 +20,7 @@
       <input type="text" id="searchInput" placeholder="Search destinations...">
       <button id="searchBtn">Search</button>
     </div>
+    <button onclick="toggleDarkMode()" class="dark-btn">🌗</button>
   </header>
 
   <section class="hero">
@@ -57,11 +58,15 @@
         <h3>Dubai</h3>
         <p>The land of luxury shopping and desert adventures.</p>
       </div>
-      <div class="card" id="NewYork">
+      <div class="card" id="New York">
         <img src="newyork.png" alt="New York">
         <h3>New York</h3>
         <p>The city that never sleeps, with vibrant culture and skyscrapers.</p>
       </div>
+    </div>
+    <br>
+    <div class="cards">
+      <button class="load-more" onclick="window.open('https://example.com', '_blank')">View More</button>
     </div>
   </section>
 
@@ -75,7 +80,7 @@
         <option value="London">London</option>
         <option value="Paris">Paris</option>
         <option value="Dubai">Dubai</option>
-        <option value="NewYork">New York</option>
+        <option value="New York">New York</option>
       </select>
 
       <label for="budget">Select Budget:</label>
@@ -85,9 +90,32 @@
         <option value="high">Above ₹20,000</option>
       </select>
 
-      <button onclick="suggestTrip()">Suggest Trip</button>
+      <label for="start">Start Date:</label>
+      <input type="date" id="start">
 
+      <label for="end">End Date:</label>
+      <input type="date" id="end">
+
+      <button onclick="suggestTrip()">Suggest Trip</button>
       <div id="trip-result" class="result-box"></div>
+    </div>
+  </section>
+
+  <section class="reviews">
+    <h2>Traveler Reviews</h2>
+    <div class="review-cards">
+      <div class="review">
+        <p>"Absolutely loved the Eiffel Tower view!"</p>
+        <span>– Aditi, India</span>
+      </div>
+      <div class="review">
+        <p>"London Eye is a must-visit!"</p>
+        <span>– Raj, UK</span>
+      </div>
+      <div class="review">
+        <p>"Best sushi I've ever had in Tokyo."</p>
+        <span>– Mia Khalifa, Japan</span>
+      </div>
     </div>
   </section>
 
