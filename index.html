@@ -17,8 +17,8 @@
       <a href="flights.html">Flights</a>
     </nav>
     <div class="search-box">
-      <input type="text" placeholder="Search destinations...">
-      <button>Search</button>
+      <input type="text" id="searchInput" placeholder="Search destinations...">
+      <button id="searchBtn">Search</button>
     </div>
   </header>
 
@@ -32,17 +32,17 @@
   <section class="destinations">
     <h2>Popular Destinations</h2>
     <div class="cards">
-      <div class="card">
+      <div class="card" id="India">
         <img src="india.png" alt="India">
         <h3>India</h3>
         <p>A land of a billion dreams, rooted in thousands of years of history.</p>
       </div>
-      <div class="card">
+      <div class="card" id="Tokyo">
         <img src="tokyo.png" alt="Tokyo">
         <h3>Tokyo</h3>
         <p>Where tradition meets innovation.</p>
       </div>
-      <div class="card">
+      <div class="card" id="London">
         <img src="london.png" alt="London">
         <h3>London</h3>
         <p>Explore rich history and culture.</p>
@@ -50,10 +50,20 @@
     </div>
     <br>
     <div class="cards">
-      <div class="card">
+      <div class="card" id="Paris">
         <img src="paris.png" alt="Paris">
         <h3>Paris</h3>
         <p>The city of love and lights.</p>
+      </div>
+      <div class="card" id="Dubai">
+        <img src="dubai.png" alt="Dubai">
+        <h3>Dubai</h3>
+        <p>The land of luxury shopping and desert adventures.</p>
+      </div>
+      <div class="card" id="NewYork">
+        <img src="newyork.png" alt="New York">
+        <h3>New York</h3>
+        <p>The city that never sleeps, with vibrant culture and skyscrapers.</p>
       </div>
     </div>
     <br>
@@ -71,6 +81,8 @@
         <option value="Tokyo">Tokyo</option>
         <option value="London">London</option>
         <option value="Paris">Paris</option>
+        <option value="Dubai">Dubai</option>
+        <option value="New York">New York</option>
       </select>
 
       <label for="budget">Select Budget:</label>
@@ -108,7 +120,34 @@
     <p>&copy; 2025 Trip Chalo. Your travel companion for unforgettable journeys.</p>
   </footer>
 
+  <!-- JavaScript -->
   <script>
+    // Search bar functionality
+    document.getElementById("searchBtn").addEventListener("click", function () {
+      const input = document.getElementById("searchInput").value.trim().toLowerCase();
+      const cards = document.querySelectorAll(".card");
+
+      let found = false;
+      cards.forEach((card) => {
+        const title = card.querySelector("h3").textContent.toLowerCase();
+        if (title.includes(input)) {
+          card.scrollIntoView({ behavior: "smooth", block: "center" });
+          card.style.border = "2px solid #00aa6c";
+          card.style.boxShadow = "0 0 15px rgba(0,170,108,0.6)";
+          setTimeout(() => {
+            card.style.border = "";
+            card.style.boxShadow = "";
+          }, 2000);
+          found = true;
+        }
+      });
+
+      if (!found) {
+        alert("No matching destination found.");
+      }
+    });
+
+    // Trip Suggestion logic
     function suggestTrip() {
       const dest = document.getElementById("dest").value;
       const budget = document.getElementById("budget").value;
@@ -134,6 +173,16 @@
           low: "3D Paris Essentials – ₹9,500",
           mid: "5D Paris with Disneyland – ₹19,000",
           high: "7D Romantic Paris Getaway – ₹32,000"
+        },
+        Dubai: {
+          low: "3D Budget Desert Tour – ₹9,800",
+          mid: "5D Dubai Marina + Safari – ₹18,500",
+          high: "7D Dubai Luxury Cruise & Skydive – ₹35,000"
+        },
+        "New York": {
+          low: "2D NY Walking Tour – ₹9,900",
+          mid: "4D Broadway + Central Park Trip – ₹18,000",
+          high: "6D Premium Manhattan Experience – ₹40,000"
         }
       };
 
