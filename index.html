@@ -8,7 +8,6 @@
 </head>
 <body>
 
-
   <header>
     <div class="logo">Trip Chalo</div>
     <nav>
@@ -22,7 +21,6 @@
       <button>Search</button>
     </div>
   </header>
-
 
   <section class="hero">
     <div class="hero-text">
@@ -39,7 +37,7 @@
         <h3>India</h3>
         <p>A land of a billion dreams, rooted in thousands of years of history.</p>
       </div>
-        <div class="card">
+      <div class="card">
         <img src="tokyo.png" alt="Tokyo">
         <h3>Tokyo</h3>
         <p>Where tradition meets innovation.</p>
@@ -49,10 +47,10 @@
         <h3>London</h3>
         <p>Explore rich history and culture.</p>
       </div>
-      </div>
-      <br>
-      <div class="cards">
-        <div class="card">
+    </div>
+    <br>
+    <div class="cards">
+      <div class="card">
         <img src="paris.png" alt="Paris">
         <h3>Paris</h3>
         <p>The city of love and lights.</p>
@@ -60,7 +58,31 @@
     </div>
     <br>
     <div class="cards">
-    <button class="load-more" onclick="window.open('https://example.com', '_blank')">View More</button>
+      <button class="load-more" onclick="window.open('https://example.com', '_blank')">View More</button>
+    </div>
+  </section>
+
+  <section class="trip-suggestions">
+    <h2>Find Your Perfect Trip</h2>
+    <div class="suggestion-form">
+      <label for="dest">Select Destination:</label>
+      <select id="dest">
+        <option value="India">India</option>
+        <option value="Tokyo">Tokyo</option>
+        <option value="London">London</option>
+        <option value="Paris">Paris</option>
+      </select>
+
+      <label for="budget">Select Budget:</label>
+      <select id="budget">
+        <option value="low">Below ₹10,000</option>
+        <option value="mid">₹10,000–₹20,000</option>
+        <option value="high">Above ₹20,000</option>
+      </select>
+
+      <button onclick="suggestTrip()">Suggest Trip</button>
+
+      <div id="trip-result" class="result-box"></div>
     </div>
   </section>
 
@@ -77,7 +99,7 @@
       </div>
       <div class="review">
         <p>"Best sushi I've ever had in Tokyo."</p>
-        <span>– Mia khalifa, Japan</span>
+        <span>– Mia Khalifa, Japan</span>
       </div>
     </div>
   </section>
@@ -85,6 +107,40 @@
   <footer>
     <p>&copy; 2025 Trip Chalo. Your travel companion for unforgettable journeys.</p>
   </footer>
+
+  <script>
+    function suggestTrip() {
+      const dest = document.getElementById("dest").value;
+      const budget = document.getElementById("budget").value;
+      const resultBox = document.getElementById("trip-result");
+
+      const packages = {
+        India: {
+          low: "3D/2N Golden Triangle Tour – ₹9,000",
+          mid: "5D South India Temple Tour – ₹15,000",
+          high: "7D Kashmir Luxury Escape – ₹25,000"
+        },
+        Tokyo: {
+          low: "2D Tokyo Backpacking – ₹9,500",
+          mid: "4D Tokyo & Mt. Fuji Tour – ₹18,000",
+          high: "6D Tokyo Premium Experience – ₹30,000"
+        },
+        London: {
+          low: "2D Budget London Walk – ₹9,800",
+          mid: "4D City & Museum Tour – ₹17,000",
+          high: "6D Royal Luxury Stay – ₹28,000"
+        },
+        Paris: {
+          low: "3D Paris Essentials – ₹9,500",
+          mid: "5D Paris with Disneyland – ₹19,000",
+          high: "7D Romantic Paris Getaway – ₹32,000"
+        }
+      };
+
+      const suggestion = packages[dest][budget];
+      resultBox.innerHTML = `<p><strong>Recommended:</strong> ${suggestion}</p>`;
+    }
+  </script>
 
 </body>
 </html>
