@@ -1,4 +1,4 @@
-/* Reset and base styling */
+/* Global Reset */
 * {
   margin: 0;
   padding: 0;
@@ -9,6 +9,32 @@ body {
   font-family: 'Segoe UI', sans-serif;
   background-color: #f9f9f9;
   color: #333;
+  transition: background-color 0.4s, color 0.4s;
+}
+
+/* Dark Mode */
+body.dark-mode {
+  background-color: #1e1e1e;
+  color: #f0f0f0;
+}
+
+body.dark-mode header {
+  background-color: #2c2c2c;
+}
+
+body.dark-mode .card {
+  background-color: #333;
+  color: #fff;
+}
+
+body.dark-mode .review,
+body.dark-mode .suggestion-form {
+  background-color: #2e2e2e;
+  color: #fff;
+}
+
+body.dark-mode footer {
+  background-color: #222;
 }
 
 /* Header */
@@ -58,6 +84,14 @@ nav a.active {
   border: none;
   border-radius: 0 6px 6px 0;
   cursor: pointer;
+}
+
+.dark-btn {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  margin-left: 10px;
 }
 
 /* Hero Section */
@@ -115,14 +149,12 @@ nav a.active {
 
 .card h3 {
   margin: 10px 0;
-  color: #00aa6c;
 }
 
 .card p {
   padding: 0 10px 15px;
 }
 
-/* Load More Button */
 .load-more {
   display: inline-block;
   padding: 10px 20px;
@@ -142,58 +174,47 @@ nav a.active {
   transform: scale(1.05);
 }
 
-/* Trip Suggestion Section */
+/* Trip Suggestions */
 .trip-suggestions {
+  background-color: #f4fdfb;
   padding: 40px 20px;
-  background-color: #e8fff4;
   text-align: center;
 }
 
-.trip-suggestions h2 {
-  color: #00aa6c;
-  margin-bottom: 20px;
-  font-size: 28px;
-}
-
 .suggestion-form {
-  margin-top: 10px;
-}
-
-.suggestion-form label {
-  font-weight: 600;
-  margin-right: 5px;
-  color: #333;
+  background-color: #ffffff;
+  padding: 25px;
+  border-radius: 12px;
+  max-width: 600px;
+  margin: 0 auto;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .suggestion-form select,
-.suggestion-form button {
+.suggestion-form input[type="date"] {
+  padding: 8px 10px;
   margin: 10px;
-  padding: 10px 14px;
-  font-size: 16px;
-  border-radius: 6px;
+  border-radius: 5px;
   border: 1px solid #ccc;
 }
 
 .suggestion-form button {
   background-color: #00aa6c;
-  color: white;
-  cursor: pointer;
+  color: #fff;
+  padding: 10px 18px;
+  margin-top: 15px;
   border: none;
-  transition: 0.3s ease;
-}
-
-.suggestion-form button:hover {
-  background-color: #008f5a;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
 }
 
 .result-box {
   margin-top: 20px;
-  font-size: 18px;
-  font-weight: bold;
-  color: #2c3e50;
+  font-size: 16px;
 }
 
-/* Reviews Section */
+/* Reviews */
 .reviews {
   background-color: #e6f7f1;
   padding: 40px 20px;
