@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Trip Chalo</title>
-  <link rel="stylesheet" href="app.css" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
@@ -47,9 +47,6 @@
         <h3>London</h3>
         <p>Explore rich history and culture.</p>
       </div>
-    </div>
-    <br>
-    <div class="cards">
       <div class="card" id="Paris">
         <img src="paris.png" alt="Paris">
         <h3>Paris</h3>
@@ -66,10 +63,6 @@
         <p>The city that never sleeps, with vibrant culture and skyscrapers.</p>
       </div>
     </div>
-    <br>
-    <div class="cards">
-      <button class="load-more" onclick="window.open('https://example.com', '_blank')">View More</button>
-    </div>
   </section>
 
   <section class="trip-suggestions">
@@ -82,7 +75,7 @@
         <option value="London">London</option>
         <option value="Paris">Paris</option>
         <option value="Dubai">Dubai</option>
-        <option value="New York">New York</option>
+        <option value="NewYork">New York</option>
       </select>
 
       <label for="budget">Select Budget:</label>
@@ -98,174 +91,10 @@
     </div>
   </section>
 
-  <section class="reviews">
-    <h2>Traveler Reviews</h2>
-    <div class="review-cards">
-      <div class="review">
-        <p>"Absolutely loved the Eiffel Tower view!"</p>
-        <span>– Aditi, India</span>
-      </div>
-      <div class="review">
-        <p>"London Eye is a must-visit!"</p>
-        <span>– Raj, UK</span>
-      </div>
-      <div class="review">
-        <p>"Best sushi I've ever had in Tokyo."</p>
-        <span>– Mia Khalifa, Japan</span>
-      </div>
-    </div>
-  </section>
-
   <footer>
     <p>&copy; 2025 Trip Chalo. Your travel companion for unforgettable journeys.</p>
   </footer>
 
-  <!-- JavaScript -->
-  <script>
-    // Search bar functionality
-    document.getElementById("searchBtn").addEventListener("click", function () {
-      const input = document.getElementById("searchInput").value.trim().toLowerCase();
-      const cards = document.querySelectorAll(".card");
-
-      let found = false;
-      cards.forEach((card) => {
-        const title = card.querySelector("h3").textContent.toLowerCase();
-        if (title.includes(input)) {
-          card.scrollIntoView({ behavior: "smooth", block: "center" });
-          card.style.border = "2px solid #00aa6c";
-          card.style.boxShadow = "0 0 15px rgba(0,170,108,0.6)";
-          setTimeout(() => {
-            card.style.border = "";
-            card.style.boxShadow = "";
-          }, 2000);
-          found = true;
-        }
-      });
-
-      if (!found) {
-        alert("No matching destination found.");
-      }
-    });
-
-    // Trip package options
-    const packages = {
-      India: {
-        low: [
-          "3D Budget Goa Getaway – ₹8,500",
-          "2N Jaipur Heritage Trip – ₹9,000",
-          "3D Rishikesh Adventure Camp – ₹9,500"
-        ],
-        mid: [
-          "5D Kerala Backwater Tour – ₹15,000",
-          "4D North East Explorer – ₹17,500",
-          "5D Ooty Scenic Escape – ₹19,800"
-        ],
-        high: [
-          "7D Kashmir Luxury Escape – ₹25,000",
-          "6D Rajasthan Royal Tour – ₹28,000",
-          "8D Andaman Island Cruise – ₹32,500"
-        ]
-      },
-      Tokyo: {
-        low: [
-          "2D Tokyo Backpacking – ₹9,500",
-          "3D Food & Culture Tour – ₹9,800",
-          "2N Capsule Hotel + City Pass – ₹9,999"
-        ],
-        mid: [
-          "4D Tokyo & Mt. Fuji – ₹18,000",
-          "5D Anime & Temple Trail – ₹19,500",
-          "4D Cherry Blossom Walk – ₹17,800"
-        ],
-        high: [
-          "6D Premium Tokyo Tour – ₹30,000",
-          "7D Tokyo-Kyoto Bullet Tour – ₹35,000",
-          "5D Disney Tokyo Luxury Stay – ₹33,500"
-        ]
-      },
-      London: {
-        low: [
-          "2D Budget Walk – ₹9,800",
-          "3D Museums & Markets – ₹9,500",
-          "Hop-on Hop-off Weekend – ₹9,999"
-        ],
-        mid: [
-          "4D City & Museum Tour – ₹17,000",
-          "5D Harry Potter + Windsor – ₹18,200",
-          "Thames Cruise + Tower Tour – ₹19,000"
-        ],
-        high: [
-          "6D Royal Luxury Stay – ₹28,000",
-          "7D London-Edinburgh Train – ₹30,000",
-          "5D Elite Shopping + Dining – ₹32,000"
-        ]
-      },
-      Paris: {
-        low: [
-          "3D Paris Essentials – ₹9,500",
-          "2N Eiffel & Louvre Tour – ₹9,800",
-          "3D Street Café Tour – ₹9,999"
-        ],
-        mid: [
-          "5D Paris + Disneyland – ₹19,000",
-          "4D Bakery Crawl – ₹17,800",
-          "5D Paris + Versailles – ₹18,700"
-        ],
-        high: [
-          "7D Romantic Getaway – ₹32,000",
-          "6D Shopping Tour – ₹30,500",
-          "Seine Cruise + Gourmet Nights – ₹34,000"
-        ]
-      },
-      Dubai: {
-        low: [
-          "3D Desert Tour – ₹9,800",
-          "Creek + Gold Souk – ₹9,600",
-          "Burj Khalifa Weekend – ₹9,999"
-        ],
-        mid: [
-          "5D Marina + Safari – ₹18,500",
-          "Abu Dhabi + Mosque – ₹17,000",
-          "Palm Jumeirah + Global Village – ₹19,500"
-        ],
-        high: [
-          "7D Cruise & Skydive – ₹35,000",
-          "Atlantis + Balloon Ride – ₹32,500",
-          "VIP Shopping Festival – ₹36,000"
-        ]
-      },
-      "New York": {
-        low: [
-          "2D Walking Tour – ₹9,900",
-          "3D Times Square – ₹9,800",
-          "Central Park + Museum – ₹9,999"
-        ],
-        mid: [
-          "4D Broadway + Park – ₹18,000",
-          "5D Statue + Brooklyn – ₹19,200",
-          "NY Pass + Nightlife – ₹17,800"
-        ],
-        high: [
-          "6D Manhattan Experience – ₹40,000",
-          "7D NY + DC Train Trip – ₹38,500",
-          "Empire State Elite Stay – ₹36,000"
-        ]
-      }
-    };
-
-    // Suggest Trip
-    function suggestTrip() {
-      const dest = document.getElementById("dest").value;
-      const budget = document.getElementById("budget").value;
-      const resultBox = document.getElementById("trip-result");
-
-      const list = packages[dest][budget];
-      const random = Math.floor(Math.random() * list.length);
-      const suggestion = list[random];
-
-      resultBox.innerHTML = `<p><strong>Recommended:</strong> ${suggestion}</p>`;
-    }
-  </script>
-
+  <script src="app.js"></script>
 </body>
 </html>
